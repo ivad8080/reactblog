@@ -1,5 +1,5 @@
 .contentContainer {
-  background: var(--test-01);
+  // background: var(--test-01);
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -11,7 +11,7 @@
 }
 
 .hero {
-  background: var(--test-02);
+  // background: var(--test-02);
   max-width: 600px;
 
   > span {
@@ -23,7 +23,7 @@
     font-size: 4.5rem;
     line-height: 4.5rem;
     font-weight: 900;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 
     span {
       color: var(--cyan-500);
@@ -41,6 +41,7 @@
     }
   }
 
-
-
+  button {
+    margin-top: 2rem;
+  }
 }
