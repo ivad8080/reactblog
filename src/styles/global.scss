@@ -17,6 +17,14 @@
   --green-500: #38A169;
   --cyan-500: #61DAFB;
   --yellow-500: #D69E2E;
+
+  --test-01: #FBD38D;
+  --test-02: #FEB2B2;
+  --test-03: #9AE6B4;
+  --test-04: #81E6D9;
+  --test-05: #90CDF4;
+  --test-06: #D6BCFA;
+  --test-07: #FBB6CE;
 }
 
 @media (max-width: 1080px) {
@@ -44,7 +52,7 @@ button {
   cursor: pointer;
 }
 
-a { 
+a {
   color: inherit;
   text-decoration: none;
 }
