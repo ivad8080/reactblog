@@ -4,10 +4,10 @@ import { FiX } from 'react-icons/fi'
 import styles from './styles.module.scss';
 
 export function SignInButton() {
-  const isUserLoggedIn = true;
+  const isUserLoggedIn = false;
 
   return isUserLoggedIn ? (
-    <button 
+    <button
       type="button"
       className={styles.signInButton}
     >
@@ -16,7 +16,7 @@ export function SignInButton() {
       <FiX color="#CBD5E0" className={styles.closeIcon} />
     </button>
   ) : (
-    <button 
+    <button
       type="button"
       className={styles.signInButton}
     >
