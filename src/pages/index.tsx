@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { SubscribeButton } from '../components/SubscribeButton';
 import { stripe } from '../services/stripe';
 
+import { useSession } from 'next-auth/react'
+
 import styles from './home.module.scss';
 
 interface HomeProps {
@@ -14,6 +16,11 @@ interface HomeProps {
 }
 
 export default function Home({ product }: HomeProps) {
+
+  const { data: session } = useSession();
+
+  const showUserName = session ? session.user.name : 'Visitante';
+
   return (
     <>
       <Head>
@@ -21,8 +28,8 @@ export default function Home({ product }: HomeProps) {
       </Head>
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
-          <span>🤗 Olá, visitante</span>
-          <h1>Tudo sobre a biblioteca <span>React</span></h1>
+          <span>🤗 Olá, {showUserName}!</span>
+          <h1>Aprenda tudo sobre o <span>React</span></h1>
           <p>
             Apoie nosso blog e receba acesso completo <br />
             <span>por {product.amount}</span>
