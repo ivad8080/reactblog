@@ -24,9 +24,25 @@ export default NextAuth({
 
       try {
         await fauna.query(
-          q.Create(
-            q.Collection('users'),
-            { data: { email }}
+          q.If( // Se
+            q.Not( // não
+              q.Exists( // existir
+                q.Match( // o termo buscado no indice especificado
+                  q.Index('user_by_email'),
+                  q.Casefold(user.email) // Normaliza
+                )
+              )
+            ), // Se não existir
+            q.Create( // Cria
+              q.Collection('users'), // na collection 'users'
+              { data: { email } } // o email do github logado
+            ), // Senão
+            q.Get( // Pegue
+              q.Match( // o termo buscado no indice especificado
+                q.Index('user_by_email'),
+                q.Casefold(user.email)
+              )
+            )
           )
         )
         return true;
