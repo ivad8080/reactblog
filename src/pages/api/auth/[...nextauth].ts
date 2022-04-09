@@ -18,6 +18,9 @@ export default NextAuth({
     // ...add more providers here
   ],
   secret: process.env.NEXT_PUBLIC_SECRET,
+  pages: {
+    error: '/error'
+  },
   callbacks: {
     async signIn({ user, account, profile}) {
       const { email } = user;
@@ -47,7 +50,7 @@ export default NextAuth({
         )
         return true;
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         return false;
       }
     }

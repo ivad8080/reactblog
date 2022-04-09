@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Image from 'next/image';
 import { SubscribeButton } from '../components/SubscribeButton';
 import { stripe } from '../services/stripe';
-
 import { useSession } from 'next-auth/react'
 
 import styles from './home.module.scss';
