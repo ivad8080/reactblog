@@ -25,6 +25,8 @@ const relevantEvents = new Set([
   'checkout.session.completed'
 ])
 
+const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET;
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     //console.log('evento recebido')
@@ -34,7 +36,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     let event: Stripe.Event;
 
     try {
-      event = stripe.webhooks.constructEvent(buff, secret, process.env.STRIPE_WEBHOOK_SECRET);
+      event = stripe.webhooks.constructEvent(buff, secret, webhookSecret);
     } catch (err) {
       return res.status(400).send(`Webhook error: ${err.message}`);
     }
